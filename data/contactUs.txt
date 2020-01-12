@@ -1,0 +1,2 @@
+<h1>Contact Us</h1>
+<br/><form><label for="email">E-Mail</label><br/> <input type="text" id="email" name="email" onblur="validateEmail(this, document.getElementById('email_help'))" /> <span id="email_help"></span><br /><br /><label for="msg">Message</label><br/> <textarea id="msg" name="msg" onblur="validateNonEmpty(this, document.getElementById('msg_help'))"></textarea><span id="msg_help"></span><br/> <input type="button" value="submit" onclick="submitForm(this.form);"/></form>

@@ -1,0 +1,158 @@
+body {
+background:no-repeat center center fixed; 
+-webkit-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+padding-top:17px;
+}
+*{
+margin:0;
+padding:0;
+font-family: "News Cycle", arial, sans-serif;
+}
+#main {
+width:1000px;
+margin-left:auto;
+margin-right:auto;
+}
+#logo {
+width:350px;
+height:100px;
+padding:0 20px 20px 20px;
+}
+header h1{
+color:#101CF9;
+}
+#logo,#menu_container{
+border-radius:7px;
+-webkit-border:7px;
+}
+#menu_container{
+width:1000px;
+margin-top:30px;
+}
+ul.sf-menu li{
+display:block;
+list-style:none;
+position:relative;
+}
+ul.sf-menu li a{
+display:block;
+position:relative;
+}
+ul#nav{
+width:1000px;
+background:red;
+border-radius:7px 7px 7px 7px;
+}
+ul#nav li a{
+padding:5px 20px 6px 20px;
+border-radius:7px 7px 7px 7px;
+color:#FFF;margin-right:2px;
+text-decoration:none;
+}
+#logo,#menu_container,#sidebar_container{
+background:rgba(100,100,100,0.5);
+}
+#sidebar_container{
+width:234px;
+margin:50px 0 0 20px;
+border:1px solid #323232;
+border-radius:7px 7px 7px 7px;
+}
+#sidebar_container li{
+padding:10px 0 0 20px;
+list-style: none;
+}
+ul.sf-menu li,ul#nav,#sidebar_container,#menu{
+float:left;
+}
+ul#nav,#sidebar_container,#menu{
+-webkit-box-shadow:rgba(0, 0, 0, 0.2) 0px 2px 2px;
+}
+#menu{
+width:234px;
+background:#6495ed;
+border-radius:7px 7px 0 0;
+color:#FFF;
+height:30px;
+padding-top:5px;
+}
+#data{
+padding:30px 0 0 0;
+width:718px;
+height:610px;
+margin:0 20px 15px 282px;
+}
+#data img{
+text-align:center;
+}
+#data div{
+padding-top:25px;
+}
+#data h5{
+padding:25px;
+}
+h1,h3,h4{
+text-align:center;
+}
+h4{
+color:red;
+}
+#data ul{
+margin:2px 0 22px 0px;
+}
+#data ul li{
+list-style-type:none;
+background:url(images/bullet.png) no-repeat;
+margin:0 0 0 0;
+padding:0 0 4px 28px;
+line-height:1.5em;
+}
+#data ul li a{
+color:lightgreen;
+}
+h3,h1,#data ul a{
+color:gold
+}
+#data ul a{
+text-decoration:none;
+}
+#data ul a:hover{
+font-weight:bold;
+}
+#data ul a:hover{
+text-decoration:underline;
+}
+#list1{
+height:250px;
+}
+#list1,#list2{
+float:left;
+width:190px;
+padding:6px 5px 0 5px;
+border:1px solid pink;
+border-radius:7px;
+margin:10px 10px 10px 25px;
+}
+#list2{
+max-height:400px;
+overflow-x:hidden;
+}
+#menu,footer{
+text-align:center;
+}
+footer{
+height:125px;
+padding:28px 0 5px 0;
+background:#1D1D1D;
+color:#FFF;
+border-top:6px solid #75CE00;
+}
+footer p{
+line-height:1.7em;
+padding:0 0 10px 0;
+}
+footer a{
+color:#FFF;
+}

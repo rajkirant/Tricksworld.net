@@ -1,0 +1,11 @@
+<h1>Home</h1>
+<br/><br/>
+
+<br/><br/><br/><br/>
+<a href="fun/bubbles" style="color:yellow">Scattering Bubblies</a><br/><br/>
+
+
+<a href="games/shoot/start.html" style="color:yellow">Birds Shooting</a><img src="images/new.gif"/><br/><br/>
+<a href="games/grab the diamond/start.html" style="color:yellow">Grab the Diamond</a><br/><br/>
+<a href="games/catchBubbles/game.htm" style="color:yellow">Catch The Bubbles</a><br/><br/>
+<a href="games/sudoku/sudoku.html" style="color:yellow">Sudoku</a><br/><br/>

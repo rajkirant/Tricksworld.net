@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+
+$(document).ready(function() {
+var counter = 60;
+setInterval(function() {
+    counter--;
+    if (counter >= 0) {
+	 $("#time").text(counter);
+   }
+       if (counter == 0) {
+	 window.location.href = 'next.html';
+   }
+
+  }, 1000);
+        var obj = document.createElement("audio");
+        obj.src="sounds/gun";
+        obj.volume=0.50;
+        obj.autoPlay=false;
+        obj.preLoad=true;
+		var count="";
+        var audioElement = document.createElement('audio');
+        audioElement.setAttribute('src', 'sounds/audio');
+        audioElement.setAttribute('autoplay', 'autoplay');		
+        $("img").click(function() {
+            obj.play();
+        });
+
+        audioElement.addEventListener("load", function() {
+            
+			
+			audioElement.play();
+        }, true);
+    $(window).mousemove(function(event) {
+   $('#mouse-pointer').css({
+
+            'top' : event.pageY + 'px',
+
+            'left' : event.pageX + 'px'
+        });
+    });
+	    $("img").click(function(){
+        $(this).hide();
+		count++;
+		$("#score").text(count);
+		if(count==6){
+		alert("Level 1 Passed\n Welcome to Level 2");
+		setTimeout(function(){ 
+				$("img").attr('src', "images/bird2.gif");
+		$("marquee").attr('scrollamount', "30");
+		$("img").show();
+		}, 2000);
+		}
+				if(count==12){
+				alert("Level 2 Passed\n Welcome to Level 3");
+		setTimeout(function(){ 
+				$("img").attr('src', "images/bird7.gif");
+				
+		$("#b1").attr('scrollamount', "35");
+		$("img").show();
+		}, 2000);
+		}
+						if(count==18){
+						alert("Level 3 Passed\n Welcome to Level 4");
+		setTimeout(function(){ 
+				$("img").attr('src', "images/bird9.gif");
+		$("marquee").attr('scrollamount', "25");
+		$("img").show();
+		}, 2000);
+		}
+								if(count==24){
+window.location.href = 'win.html';
+		}
+    });
+			setTimeout(function(){ 
+			
+		audioElement.play();
+		}, 30000);
+	
+});
+</script>
+<style type="text/css">
+	* {
+    cursor: none;
+}
+figure#mouse-pointer { background-image: url('images/t1.png');
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    margin-left: -8px;
+    display: block;
+
+}
+
+html { 
+  background: url(images/r.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+body {
+
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  -o-user-select: none;
+  user-select: none;  
+}
+.custom {
+   cursor: url(target.png), auto;
+}
+</style>
+</head>
+<body>    
+<div id="status"></div>
+<script>countDown(10,"status");</script>
+<pre><font size="5px" color = "#ccf5ff" >    SHOOT ALL BIRDS TO WIN                </font><font size="10px" color = "#e6ffff" >CATCH ME IF YOU CAN!</font><font size="5px" color = "#ccf5ff" >      TIME LEFT : <time id="time">60</time>    SCORE: <score id="score">0</score>  </font></pre> 
+<figure id="mouse-pointer"></figure>
+
+
+<pre><marquee id="b1"direction="right">
+<marquee direction="down" width="500" height="300" behavior="alternate" >
+
+
+<img src="images/bird1.gif" id = "batch1"><img src="images/bird1.gif"  id = "batch1"><img src="images/bird1.gif"  id = "batch1"></marquee></marquee>
+<marquee id="b1"direction="right">
+<marquee direction="up" width="500" height="300" behavior="alternate" >
+
+
+<img src="images/bird1.gif" id = "batch1"><img src="images/bird1.gif"  id = "batch1"><img src="images/bird1.gif"  id = "batch1"></marquee></marquee></pre>
+
+</body>
+</html>

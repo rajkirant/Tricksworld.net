@@ -1,0 +1,196 @@
+<html>
+<head>
+<title>ninja sudoku</title>
+<style>
+.cell input {
+    display: inline-block;
+    float: left;
+    border: 1px solid black;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    font-size: 30px;
+}
+
+table{
+    border-collapse: collapse;
+}
+table tr:nth-child(3),table tr:nth-child(6) {
+    border-bottom: 5px solid black;
+
+}
+table tr td:nth-child(3),table tr td:nth-child(6) {
+    border-right: 5px solid black;
+}
+</style>
+<script>
+
+
+function verify() {
+
+var x = document.getElementById("frm1");
+var i=0;
+var j=0;
+var m;
+var n;
+var result=45;
+var sum1;
+var sum2;
+var sum3;
+while(j<9){
+m=i;
+n=j;
+sum1=0;
+sum2=0;
+for(var k=0;k<9;k++){
+sum1+=parseInt(x.elements[m].value);
+sum2+=parseInt(x.elements[n].value);
+m++;
+n+=9;
+}
+for(
+if(sum1 != result || sum2 != result)
+return 0;
+i+=9;
+j++;
+}
+document.write("<br/><br/><br/><br/><br/><center><img src='g.gif'/><br/><h3>Congrats You Won The Game</h3></center>");
+}
+</script>
+</head>
+<body background="sudoku.jpg" oncontextmenu="return false">
+<form id="frm1">
+<center>
+<br><br><br><br><br><br><br><br><br><br><br><br><table frame="box" border = "5">
+               
+               <tr >
+
+<td class="cell"><input type="text" maxlength="1" value="5" disabled></td>
+<td class="cell"><input type="text" maxlength="1" value="3" disabled></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify(4);"></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify(6);"></td>
+<td class="cell"><input type="text" maxlength="1" value="7" disabled></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify(8);"></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify(9);"></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify(1);"></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify(2);"></td>
+
+                    
+                </tr>
+                <tr >
+
+<td class="cell"><input type="text" maxlength="1" value="6" disabled></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify();"></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify();"></td>
+<td class="cell"><input type="text" maxlength="1" value="1" disabled></td>
+<td class="cell"><input type="text" maxlength="1" value="9" disabled></td>
+<td class="cell"><input type="text" maxlength="1" value="5" disabled></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify();"></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify();"></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify();"></td>
+
+                    
+                </tr>
+                <tr >
+<td class="cell"><input type="text" maxlength="1" oninput="verify();"></td>
+<td class="cell"><input type="text" maxlength="1" value="9" disabled></td>
+<td class="cell"><input type="text" maxlength="1" value="8" disabled></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify();"></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify();"></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify();"></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify();"></td>
+<td class="cell"><input type="text" maxlength="1" value="6" disabled></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify();"></td>
+
+
+                    
+                </tr>
+                <tr >
+
+<td class="cell"><input type="text" maxlength="1" value="8" disabled></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify();"></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify();"></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify();"></td>
+<td class="cell"><input type="text" maxlength="1" value="6" disabled></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify();"></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify();"></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify();"></td>
+<td class="cell"><input type="text" maxlength="1" value="3" disabled></td>
+
+
+
+                    
+                </tr>
+                <tr >
+
+<td class="cell"><input type="text" maxlength="1" value="4" disabled></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify();"></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify();"></td>
+<td class="cell"><input type="text" maxlength="1" value="8" disabled></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify();"></td>
+<td class="cell"><input type="text" maxlength="1" value="3" disabled></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify();"></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify();"></td>
+<td class="cell"><input type="text" maxlength="1" value="1" disabled></td>
+                    
+                </tr>
+                <tr >
+
+<td class="cell"><input type="text" maxlength="1" value="7" disabled></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify();"></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify();"></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify();"></td>
+<td class="cell"><input type="text" maxlength="1" value="2" disabled></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify();"></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify();"></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify();"></td>
+<td class="cell"><input type="text" maxlength="1" value="6" disabled></td>
+
+
+                    
+                </tr>
+                <tr >
+<td class="cell"><input type="text" maxlength="1" oninput="verify();"></td>
+<td class="cell"><input type="text" maxlength="1" value="6" disabled></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify();"></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify();"></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify();"></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify();"></td>
+<td class="cell"><input type="text" maxlength="1" value="2" disabled></td>
+<td class="cell"><input type="text" maxlength="1" value="8" disabled></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify();"></td>
+                    
+                </tr>
+                <tr >
+<td class="cell"><input type="text" maxlength="1" oninput="verify();"></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify();"></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify();"></td>
+<td class="cell"><input type="text" maxlength="1" value="4" disabled></td>
+<td class="cell"><input type="text" maxlength="1" value="1" disabled></td>
+<td class="cell"><input type="text" maxlength="1" value="9" disabled></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify();"></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify();"></td>
+<td class="cell"><input type="text" maxlength="1" value="5" disabled></td>
+
+
+                    
+                </tr>
+                <tr >
+
+<td class="cell"><input type="text" maxlength="1" oninput="verify();"></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify();"></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify();"></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify();"></td>
+<td class="cell"><input type="text" maxlength="1" value="8" disabled></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify();"></td>
+<td class="cell"><input type="text" maxlength="1" oninput="verify();"></td>
+<td class="cell"><input type="text" maxlength="1" value="7" disabled></td>
+<td class="cell"><input type="text" maxlength="1" value="9" disabled></td>
+                    
+                </tr>
+
+</table>
+</center>
+</form>
+</body>
+</html>

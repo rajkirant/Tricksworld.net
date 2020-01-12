@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to Tricks World</title>
+<meta charset="UTF-8">
+<meta name="keywords" content="mtips.mw.lt,magictips.tk" />
+<meta name="description" content="Full version softwares,games" />
+<link rel="stylesheet" href="data/style.css">
+<script src="data/jquery-1.11.3.min.js"></script>
+<script src="data/script.js"> </script>
+<!-- <script src="fbapp/fb.js"> </script> -->
+</head>
+<body onload="setBackground()">
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.12&appId=163852077610015&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div id="main"><div id="logo">
+<div style="float:left;margin-top:10px;">
+<img src="images/logo-small.gif" />
+</div>
+<div style="float:right;color:white;padding-top:10px;">
+<header>
+<h2>TricksWorld.Net</h2><br/>
+<h3>Welcome to Tricks World</h3>
+</header>
+</div>
+</div>
+<div id="menu_container">
+<nav>
+<ul class="sf-menu" id="nav">
+<li><a href="" onClick="getData(this.id)" id="l1">Home</a></li>
+<li><a href="" onClick="getData(this.id)" id="l7">Games</a></li>
+<li><a href="" onClick="getData(this.id)" id="l8">Fun</a></li>
+<li><a href="" onClick="getData(this.id)" id="l6">Contact Us</a></li>
+<!-- <li><a id="l2" href="" onClick="getData(this.id)">Sign Up</a></li>
+<li><a id="l3" href="" onClick="getData(this.id)">Log In</a></li> -->
+<li><a href="" onClick="getData(this.id)" id="l5">About Me</a></li>
+</ul>
+</nav>
+<script>updateLogin();</script>
+<div id="sidebar_container"><div id="menu">Menu</div>
+<br/><br/><br/>
+<li>
+<div class="fb-like" data-href="https://www.facebook.com/tricksworld.net/" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+</li>
+<li>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://TricksWorld.Net" data-via="Tricks World" data-lang="en">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</li>
+</div>
+<div id ="data"></div>
+</div></div>
+    <footer>
+      <p><a href="https://twitter.com/TricksWorld_Net"><img src="images/twitter.png" alt="twitter" /></a>&nbsp;<a href="https://www.facebook.com/tricksworld.net"><img src="images/facebook.png" alt="facebook" /></a>&nbsp;<a href="https://plus.google.com/communities/111135313272943533312"><img src="images/gp.png" alt="rss" /></a></p>
+      <p>View In : <a href="http://m.tricksworld.net">Mobile</a></p>
+    </footer>
+</body>
+</html>

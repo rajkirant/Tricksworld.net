@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>start game</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+        var audioElement = document.createElement('audio');
+        audioElement.setAttribute('src', 'sounds/birdsound');
+        audioElement.setAttribute('autoplay', 'autoplay');
+        //audioElement.load()
+
+        $.get();
+
+        audioElement.addEventListener("load", function() {
+            audioElement.play();
+        }, true);
+    });
+	$(document).ready(function() {
+	$("img").click(function() {
+	window.location.href = 'shoot.html';
+	});
+	});
+	
+	</script>
+<style type="text/css">
+html { 
+ 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+body {
+	background: url("images/r.jpg") no-repeat center center fixed;
+	background-size: cover;
+	font-size: 16px;
+	font-family: 'Lato', sans-serif;
+	font-weight: 300;
+	margin: 0;
+	color: #87CEEB;
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  -o-user-select: none;
+  user-select: none;  
+}
+  </style>
+</head>
+<body>
+<br><br><br><br><br><br>
+<h2><center><font size = "5px" color ="green">INSTRUCTIONS : Shoot all the birds within 60 seconds to win the game</font></center></h2>
+<marquee direction ="right" scrollamount="10"><pre><img src="images/bird1.gif">                      <img src="images/bird2.gif">                                         <img src="images/bird1.gif"></pre></marquee>
+<p><center><img src="images/go.png" height = "100" width = "100"></p><br><br><br><br><br><br>
+<img src="images/girl.png" height = "100" width = "100"><img src="images/boy.png" height = "100" width = "100">
+</body>
+</html>

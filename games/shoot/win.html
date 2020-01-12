@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>game over</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+        var audioElement = document.createElement('audio');
+        audioElement.setAttribute('src', 'sounds/winmusic');
+        audioElement.setAttribute('autoplay', 'autoplay');
+        //audioElement.load()
+
+        $.get();
+
+        audioElement.addEventListener("load", function() {
+            audioElement.play();
+        }, true);
+
+       
+       
+    });
+	</script>
+<style type="text/css">
+html { 
+  background: url(images/r.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+body {
+
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  -o-user-select: none;
+  user-select: none;  
+}
+  </style>
+</head>
+<body>
+<br><br><br><br><br><br><br><br>
+<img src="images/won.gif">
+<img src="images/cong.gif">
+ <b><a href="start.html">RESTART</a></b>
+</body>
+</html>
