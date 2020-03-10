@@ -20,13 +20,13 @@ div {
 </style>
 </head>
 <body>
-	<b>Add an Item:</b><br>
-
-  Item<input id="newItem" type="text" name="task">
-  <br>
-  Value<input id="newValue" type="number" name="task">
-  <br>
-<button onclick="addItem()">Add</button>
+<form>
+<label for="email">New Item</label><br> 
+<input type="text" id="email" name="email"><br> <br>
+<label for="msg">Value</label><br><input type="number" id="msg" name="msg">
+<span id="msg_help"></span><br> 
+<input type="button" value="Add" onclick="submitForm(this.form);">
+</form>
 	<script>
 		var selectedNum = {}
 		var selectedChk = [];
