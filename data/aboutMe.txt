@@ -5,7 +5,7 @@
 </head>
 <body><img width="200px" height="auto" src="images/me.jpg"/>
 <div style="float: right; width: 350px;color: white;">
-<b>I am Raj Kiran,An award winning Web professional,And my Favourate Personal Quote is <mark>"A Dream is not that which you see while sleeping,It is somthing which does not let you sleep"</mark>. Me from Kerala,India who designs,codes,consults,speaks and writes about building high quality accessible websites.</b>
+<b>I am Raj Kiran,An award winning Web professional,And my Favourite Personal Quote is <mark>"A Dream is not that which you see while sleeping,It is somthing which does not let you sleep"</mark>. Me from Kerala,India who designs,codes,consults,speaks and writes about building high quality accessible websites.</b>
 </div>
 </body>
 </html>
