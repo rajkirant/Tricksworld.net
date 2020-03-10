@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Daily Progress</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<style>
+html, body {
+	height: 100%;
+	position: fixed;
+}
+
+div {
+	height: 90%;
+	width: 300px;
+	max-width: 100vh;
+	overflow: scroll;
+	border: 1px solid #4CAF50;
+}
+</style>
+</head>
+<body>
+	<script>
+		var selectedNum = {}
+		var selectedChk = [];
+
+		var div = document.createElement("div");
+		var f = document.createElement("form");
+		f.setAttribute('id', "frm1");
+		div.appendChild(f);
+		document.body.appendChild(div);
+		var btn = document.createElement("button");
+		var t = document.createTextNode("Refresh");
+		btn.appendChild(t);
+		btn.setAttribute('onClick', 'request("items.php",itemRequest,"fetch")');
+		var btn2 = document.createElement("button");
+		var t2 = document.createTextNode("View Data");
+		btn2.appendChild(t2);
+		btn2.setAttribute('onclick',
+				'request("progress.php",itemRequest,"view")');
+		var p = document.createElement("p");
+		p.setAttribute('id', "status");
+		document.body.appendChild(btn);
+		document.body.appendChild(btn2);
+		document.body.appendChild(p);
+		let d = new Date();
+		let date = d.getFullYear() + "-" + ((d.getMonth() + 1) > 9 ? "" : "0")
+				+ (d.getMonth() + 1) + "-" + d.getDate();
+		var output;
+		let itemRequest = JSON.stringify({
+			"date" : d.getFullYear() + "-"
+					+ ((d.getMonth() + 1) > 9 ? "" : "0") + (d.getMonth() + 1)
+					+ "-" + d.getDate() + "-" + d.getHours()
+		});
+		request("items.php", itemRequest, "fetch");
+		function request(url, sendData, operation) {
+
+			let xhttp = new XMLHttpRequest();
+
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					if (operation === "fetch") {
+
+						document.getElementById("frm1").innerHTML = "";
+						output = JSON.parse(this.responseText);
+						
+					
+						if(output['selectedChk'] !== undefined)
+						selectedChk = output['selectedChk'];
+					
+						for ( let key in output['dataChk']) {
+							let l = document.createElement("label");
+							let t = document.createTextNode(key);
+							let i = document.createTextNode("-");
+							l.setAttribute("for", "c" + output['dataChk'][key]);
+							l.prepend(t);
+							let c = document.createElement("input");
+							c.setAttribute("type", "checkbox");
+							c.setAttribute("onchange",
+									"save(this.id,this.checked)");
+
+							if (output['selectedChk'] !== undefined && output['selectedChk']
+									.indexOf(output['dataChk'][key]) !== -1)
+								c.setAttribute("checked", true);
+							c.setAttribute("id", "c" + output['dataChk'][key]);
+							document.forms["frm1"].appendChild(i);
+							document.forms["frm1"].appendChild(c);
+							document.forms["frm1"].appendChild(l);
+							document.forms["frm1"].appendChild(document
+									.createElement("br"));
+						}
+					
+						if(output['selectedNum'] !== undefined)
+						selectedNum = output['selectedNum'];
+						for ( let key in output['dataNum']) {
+							let l = document.createElement("label");
+							let t = document.createTextNode(key);
+							l.setAttribute("for", "n" + output['dataNum'][key]);
+							l.prepend(t);
+							let c = document.createElement("input");
+							c.setAttribute("type", "number");
+							c.setAttribute("id", "n" + output['dataNum'][key]);
+							c.setAttribute("style", "width:3em");
+							c.setAttribute("onchange",
+									"save(this.id,parseInt(this.value));");
+							if (output['selectedNum'] !== undefined && output['selectedNum'][output['dataNum'][key]] !== 0)
+							c.setAttribute(
+											"value",
+											output['selectedNum'][output['dataNum'][key]]);
+							document.forms["frm1"].appendChild(c);
+							document.forms["frm1"].appendChild(l);
+							document.forms["frm1"].appendChild(document
+									.createElement("br"));
+
+						}
+
+					} else if (operation === "view") {
+						document.getElementById("frm1").innerHTML = "";
+						let history = JSON.parse(this.responseText);
+						var body = document.getElementsByTagName('body')[0];
+						var tbl = document.createElement('table');
+						tbl.style.width = '100%';
+						tbl.setAttribute('border', '1');
+						var thead = document.createElement('thead');
+						var tbdy = document.createElement('tbody');
+
+						var tr = document.createElement('tr');
+
+						var td = document.createElement('td');
+						td.appendChild(document.createTextNode("Date"))
+
+						tr.appendChild(td);
+
+						var td = document.createElement('td');
+						td.appendChild(document.createTextNode("Score"));
+
+						tr.appendChild(td);
+						thead.appendChild(tr);
+
+						for (i = 0; i < history.length; i++) {
+
+							var tr = document.createElement('tr');
+
+							var td = document.createElement('td');
+							td.appendChild(document.createTextNode(Object
+									.keys(history[i])[0]))
+
+							tr.appendChild(td);
+
+							var td = document.createElement('td');
+							td.appendChild(document.createTextNode(Object
+									.values(history[i])[0]))
+
+							tr.appendChild(td);
+
+							tbdy.appendChild(tr);
+						}
+						tbl.appendChild(thead);
+						tbl.appendChild(tbdy);
+						document.getElementById("frm1").appendChild(tbl)
+
+					} else {
+
+						var responseToken = this.getResponseHeader("token");
+						if (responseToken === token)
+							document.getElementById("status").innerHTML = this.responseText;
+					}
+
+				}
+
+			}
+			xhttp.open("POST", url, true);
+			xhttp.setRequestHeader("Content-Type", "application/json");
+
+			xhttp.send(sendData);
+		}
+		var token;
+		function save(id, value) {
+			console.log(selectedNum);
+
+			token = String(Math.random()).substring(2, 11)
+			document.getElementById("status").innerHTML = "Please Wait....";
+			let x = document.forms["frm1"];
+			let i;
+			let item = parseInt(id.substring(1));
+		
+
+			if (id.substring(0, 1) === "n")
+				
+				if (value === 0 || isNaN(value))
+					delete selectedNum[item];
+			
+				else
+					selectedNum[item] = value;
+					
+				
+			
+			else if (id.substring(0, 1) === "c")
+				if (value === true){
+					
+			
+					selectedChk.push(item);
+				}else
+					selectedChk.splice(selectedChk.indexOf(item), 1);
+
+			var dataLoad = {};
+			dataLoad["selectedNum"] = selectedNum;
+			dataLoad["selectedChk"] = selectedChk;
+			
+			let d = new Date();
+
+			request("save.php", JSON.stringify({
+				"dataLoad" : dataLoad,
+				"token" : token,
+				"date" : d.getFullYear() + "-"
+						+ ((d.getMonth() + 1) > 9 ? "" : "0")
+						+ (d.getMonth() + 1) + "-" + (d.getDate()<10 ? "0":"") + d.getDate()
+			}), "save");
+
+		}
+	</script>
+</body>
+</html>
