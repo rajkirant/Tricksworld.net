@@ -7,7 +7,6 @@
 <style>
 html, body {
 	height: 100%;
-	position: fixed;
 }
 
 div {
@@ -20,13 +19,14 @@ div {
 </style>
 </head>
 <body>
-<form>
-<label for="email">New Item</label><br> 
-<input type="text" id="email" name="email"><br> <br>
-<label for="msg">Value</label><br><input type="number" id="msg" name="msg">
-<span id="msg_help"></span><br> 
-<input type="button" value="Add" onclick="submitForm(this.form);">
-</form>
+	<b>Add an Item:</b><br>
+
+  Item<input id="newItem" type="text" name="task">
+  <br>
+  Value<input id="newValue" type="number" name="task">
+  <br>
+<button onclick="addItem()">Add</button>
+<li id="status">status</li>
 	<script>
 		var selectedNum = {}
 		var selectedChk = [];
@@ -45,11 +45,11 @@ div {
 		btn2.appendChild(t2);
 		btn2.setAttribute('onclick',
 				'request("progress.php",itemRequest,"view")');
-		var p = document.createElement("p");
-		p.setAttribute('id', "status");
+		//var p = document.createElement("p");
+		//p.setAttribute('id', "status");
 		document.body.appendChild(btn);
 		document.body.appendChild(btn2);
-		document.body.appendChild(p);
+		//document.body.appendChild(p);
 		let d = new Date();
 		let date = d.getFullYear() + "-" + ((d.getMonth() + 1) > 9 ? "" : "0")
 				+ (d.getMonth() + 1) + "-" + d.getDate();
@@ -167,7 +167,10 @@ div {
 						document.getElementById("frm1").appendChild(tbl)
 
 					} else {
-
+					alert(operation);
+						if (operation === "add") {
+						request("items.php", itemRequest, "fetch");
+						}
 						var responseToken = this.getResponseHeader("token");
 						if (responseToken === token)
 							document.getElementById("status").innerHTML = this.responseText;
@@ -183,9 +186,8 @@ div {
 		}
 		var token;
 		function save(id, value) {
-			console.log(selectedNum);
 
-			token = String(Math.random()).substring(2, 11)
+			token = String(Math.random()).substring(2, 11);
 			document.getElementById("status").innerHTML = "Please Wait....";
 			let x = document.forms["frm1"];
 			let i;
@@ -224,6 +226,20 @@ div {
 						+ (d.getMonth() + 1) + "-" + (d.getDate()<10 ? "0":"") + d.getDate()
 			}), "save");
 
+		}
+		function addItem() {
+		document.getElementById("status").innerHTML = "Please Wait....";
+		token = String(Math.random()).substring(2, 11);
+		let newItem = document.getElementById("newItem").value;
+		let newValue = document.getElementById("newValue").value;
+					request("save.php", JSON.stringify({
+				"newItem" : newItem,
+				"token" : token,
+				"newValue" : newValue,
+				"date" : d.getFullYear() + "-"
+						+ ((d.getMonth() + 1) > 9 ? "" : "0")
+						+ (d.getMonth() + 1) + "-" + (d.getDate()<10 ? "0":"") + d.getDate()
+			}), "add");
 		}
 	</script>
 
