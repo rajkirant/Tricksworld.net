@@ -7,8 +7,9 @@ if ($data ["date"]) {
 		die ( "Connection failed: " . $conn->connect_error );
 	}
 	$timestamp = strtotime ( $data ["date"] );
-	$hour = date ( 'H', $timestamp ) - 1;
-	$sql = "SELECT sl_no,item, value,time_hour FROM checkbox_items where time_hour <" . $hour . " order by item ASC";
+	$hour = date ( 'H', $timestamp );
+	
+	$sql = "SELECT sl_no,item, value,time_hour FROM checkbox_items where time_hour <=" . $hour . " order by item ASC";
 	$result = $conn->query ( $sql );
 	
 	$final = new StdClass ();
